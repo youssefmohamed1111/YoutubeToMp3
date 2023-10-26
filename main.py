@@ -1,7 +1,11 @@
 from pytube import YouTube
+from tkinter import *
 import os
+
+
 video = YouTube(str(input("Enter the Video's URL : ")))
 print("Processing...\n")
+
 mp3 = video.streams.filter(only_audio=True).first()
 print("Enter Destination or leave blank for current directory \n")
 destination =str(input(">> ")) or '.'
@@ -11,6 +15,7 @@ base ,ext = os.path.splitext(output)
 new_file = base +'.mp3'
 os.rename(output,new_file)
 print(video.title +"  has been downloaded")
+
 
 
 
